@@ -1,0 +1,31 @@
+[project]
+name = "email-mcp"
+version = "0.1.0"
+description = "MCP server exposing a send_email tool backed by Azure Communication Services Email"
+requires-python = ">=3.11,<3.12"
+dependencies = [
+    "mcp==1.30.0",
+    "azure-communication-email==1.1.0",
+    "azure-identity==1.25.3",
+    "uvicorn==0.54.0",
+]
+
+[dependency-groups]
+dev = [
+    "pytest==8.0.0",
+    "pytest-asyncio==0.23.5",
+    "httpx==0.28.1",
+    "ruff==0.4.0",
+]
+
+[tool.ruff]
+line-length = 120
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
+pythonpath = ["."]
